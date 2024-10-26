@@ -1,31 +1,13 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl"> <!-- Set language to Arabic and right-to-left -->
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reveal.js Arabic Presentation</title>
 
-    <!-- Reveal.js Stylesheets -->
-    <link rel="stylesheet" href="dist/reveal.css" />
-    <link rel="stylesheet" href="dist/theme/night.css" /> <!-- Night theme -->
-
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-        }
-
-        /* Ensure scroll view is applied for long slides */
-        .reveal {
-            height: 100vh;
-        }
-
-        /* Styling Arabic text for readability */
-        section {
-            text-align: right;  /* Align text to the right */
-            line-height: 1.8;
-            font-size: 1.2em;
-        }
-    </style>
+    <!-- Reveal.js CSS (via CDN) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/night.css" />
 </head>
 <body>
     <div class="reveal">
@@ -36,41 +18,22 @@
 هذه مقدمة العرض التقديمي باستخدام Reveal.js.
 
 ---
-
 ## شريحة ثانية
 بعض النصوص مع [رابط](https://hakim.se).
-
----
-
-## شريحة ثالثة
-نص طويل جدًا يحتاج إلى التمرير للقراءة بشكل كامل.
                 </textarea>
-            </section>
-
-            <section>
-                <section>شريحة أفقية 1</section>
-                <section>شريحة أفقية 2</section>
-            </section>
-
-            <section data-markdown="example.md"
-                     data-separator="^\n---\n"
-                     data-separator-vertical="^\n\n"
-                     data-charset="utf-8">
-                <!-- Loading external markdown content -->
             </section>
         </div>
     </div>
 
-    <!-- Reveal.js Scripts -->
-    <script src="dist/reveal.js"></script>
-    <script src="plugin/markdown/markdown.js"></script>
+    <!-- Reveal.js and Markdown Plugin (via CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/markdown/markdown.js"></script>
 
     <script>
         Reveal.initialize({
             plugins: [ RevealMarkdown ],
-            view: 'scroll',  // Enable scrolling for long text
-            scrollProgress: true,  // Keep scrollbar visible
-            scrollSnap: 'proximity',  // Snap scrolling when close to slide
+            view: 'scroll',
+            scrollProgress: true,
         });
     </script>
 </body>
