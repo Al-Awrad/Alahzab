@@ -3,40 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reveal.js Test</title>
+    <title>Reveal.js Arabic Presentation</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/night.css" />
 
     <style>
-        /* Ensure Reveal and Slides take full height */
+        /* Ensure full-page height and no body overflow */
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%; /* Ensure the full height is used */
-            overflow: hidden; /* Prevent unwanted body scrollbars */
+            height: 100%;
+            overflow: hidden;  /* Prevent scrolling on body */
         }
 
         .reveal {
-            height: 100vh; /* Full screen height for the reveal container */
-            overflow-y: auto; /* Enable scrolling inside the reveal container */
+            height: 100vh;
+            overflow: auto; /* Ensure scroll for long content */
         }
 
         .slides {
-            height: 100%; /* Ensure slides take full height */
-            display: flex;
-            flex-direction: column;
-            justify-content: start; /* Align content to the top */
+            display: block; /* Prevent flex issues */
         }
 
-        /* Fix section height for long text */
         section {
-            flex: 1; /* Allow the section to expand */
+            height: 100vh; /* Each slide takes the full height */
+            overflow-y: auto; /* Enable scrolling within the slide */
             text-align: right; /* Align Arabic text to the right */
-            padding: 20px; /* Add some padding for readability */
+            padding: 20px;
             line-height: 1.8;
             font-size: 1.2em;
             box-sizing: border-box;
+        }
+
+        /* Optional: Add padding at the bottom for extra spacing */
+        section:last-child {
+            margin-bottom: 100px;
         }
     </style>
 </head>
@@ -65,9 +67,10 @@
 
     <script>
         Reveal.initialize({
-            plugins: [ RevealMarkdown ],
-            view: 'scroll',  // Enable scroll view
-            scrollProgress: true,  // Show progress indicator while scrolling
+            plugins: [RevealMarkdown],
+            view: 'scroll',  // Enable scroll view for better navigation
+            scrollProgress: true,  // Keep progress bar visible
+            scrollSnap: 'mandatory',  // Force snapping to slides
         });
     </script>
 </body>
