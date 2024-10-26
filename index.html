@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/night.css" />
 
     <style>
-        /* Full-page layout with hidden overflow */
+        /* Ensure full height and no body scrolling */
         html, body {
             margin: 0;
             padding: 0;
@@ -19,24 +19,22 @@
 
         .reveal {
             height: 100vh;
-            overflow: hidden;
+            overflow: hidden; /* Prevent unwanted scrollbars */
         }
 
         .slides {
             display: block;
         }
 
-        /* Section adjustments for better scrolling behavior */
+        /* Slide styling with internal scrolling */
         section {
-            min-height: 100vh;  /* Ensure slides are at least full viewport height */
-            max-height: 100vh;  /* Prevent exceeding viewport height */
-            overflow-y: auto;    /* Enable scrolling within the slide */
-            text-align: right;
+            overflow-y: auto; /* Enable vertical scrolling inside slide */
+            text-align: right; /* Align Arabic text to the right */
             padding: 20px;
-            box-sizing: border-box;  /* Include padding in height calculations */
+            box-sizing: border-box;
         }
 
-        /* Styling for dark scrollbar to match night theme */
+        /* Styling the scrollbar to match night theme */
         section::-webkit-scrollbar {
             width: 10px;
         }
@@ -81,12 +79,24 @@
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
 
     <script>
+        // Initialize Reveal.js
         Reveal.initialize({
-            plugins: [RevealMarkdown],
-            transition: 'slide',  // Enable horizontal slide transitions
+            plugins: [ RevealMarkdown ],
+            transition: 'slide',  // Horizontal transitions
             slideNumber: true,    // Show slide numbers
-            center: false,        // Disable vertical centering for better scrolling
+            center: false,        // Disable centering for better scrolling
         });
+
+        // Adjust the height of each section dynamically on window resize
+        function adjustSectionHeight() {
+            document.querySelectorAll('section').forEach(section => {
+                section.style.height = `${window.innerHeight}px`;
+            });
+        }
+
+        // Run the adjustment on page load and whenever the window is resized
+        window.addEventListener('resize', adjustSectionHeight);
+        window.addEventListener('load', adjustSectionHeight);
     </script>
 </body>
 </html>
