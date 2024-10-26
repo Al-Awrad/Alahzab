@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl"> <!-- Arabic setup with right-to-left direction -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,23 @@
     <!-- Reveal.js CSS (via CDN) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/night.css" />
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Ensure Reveal.js content takes full height for scroll */
+        .reveal {
+            height: 100vh;
+        }
+
+        section {
+            text-align: right;  /* Arabic text alignment */
+            line-height: 1.8;
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 <body>
     <div class="reveal">
@@ -36,8 +53,9 @@
     <script>
         Reveal.initialize({
             plugins: [ RevealMarkdown ],
-            view: 'scroll',
-            scrollProgress: true,
+            view: 'scroll',  // Enable scroll view for long content
+            scrollProgress: true,  // Keep scrollbar visible for feedback
+            scrollSnap: 'proximity',  // Enable smooth snapping to slides
         });
     </script>
 </body>
