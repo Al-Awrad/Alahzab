@@ -1,30 +1,10 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl"> <!-- Arabic setup with right-to-left direction -->
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reveal.js Arabic Presentation</title>
-
-    <!-- Reveal.js CSS (via CDN) -->
+    <title>Reveal.js Test</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/night.css" />
-
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-        }
-
-        /* Ensure Reveal.js content takes full height for scroll */
-        .reveal {
-            height: 100vh;
-        }
-
-        section {
-            text-align: right;  /* Arabic text alignment */
-            line-height: 1.8;
-            font-size: 1.2em;
-        }
-    </style>
 </head>
 <body>
     <div class="reveal">
@@ -46,16 +26,14 @@
         </div>
     </div>
 
-    <!-- Reveal.js and Markdown Plugin (via CDN) -->
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
 
     <script>
         Reveal.initialize({
             plugins: [ RevealMarkdown ],
             view: 'scroll',  // Activate scroll view
-            scrollProgress: true,  // Show scrollbar for long content
-            scrollSnap: 'auto',  // Enable snapping between slides
+            scrollProgress: true,  // Show scrollbar
         });
     </script>
 </body>
