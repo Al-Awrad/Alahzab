@@ -13,32 +13,32 @@
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%;
-            overflow: hidden;  /* Prevent scrolling on body */
+            height: 100%; /* Full height for the viewport */
+            overflow: hidden;  /* Prevent page-level scrolling */
         }
 
         .reveal {
-            height: 100vh;
-            overflow: auto; /* Ensure scroll for long content */
+            height: 100vh; /* Use full viewport height for Reveal.js */
+            overflow: hidden; /* Prevent unwanted scrolling on the container */
         }
 
         .slides {
-            display: block; /* Prevent flex issues */
+            display: block; /* Use block layout to avoid layout issues */
         }
 
         section {
-            height: 100vh; /* Each slide takes the full height */
-            overflow-y: auto; /* Enable scrolling within the slide */
-            text-align: right; /* Align Arabic text to the right */
-            padding: 20px;
-            line-height: 1.8;
-            font-size: 1.2em;
+            height: 100vh; /* Each slide fills the entire viewport height */
+            overflow-y: auto; /* Enable vertical scrolling for long content */
+            text-align: right; /* Right-align for Arabic text */
+            padding: 20px; /* Add padding for better readability */
             box-sizing: border-box;
         }
 
-        /* Optional: Add padding at the bottom for extra spacing */
-        section:last-child {
-            margin-bottom: 100px;
+        /* Adjust content alignment for long text */
+        section p {
+            margin: 0 0 10px; /* Add space between paragraphs */
+            line-height: 1.8;
+            font-size: 1.2em;
         }
     </style>
 </head>
@@ -67,10 +67,11 @@
 
     <script>
         Reveal.initialize({
-            plugins: [RevealMarkdown],
-            view: 'scroll',  // Enable scroll view for better navigation
-            scrollProgress: true,  // Keep progress bar visible
-            scrollSnap: 'mandatory',  // Force snapping to slides
+            plugins: [ RevealMarkdown ],
+            view: 'scroll',  // Enable scroll view
+            scrollProgress: true,  // Keep progress indicator visible
+            center: false,  // Disable vertical centering
+            slideNumber: true,  // Show slide numbers for clarity
         });
     </script>
 </body>
