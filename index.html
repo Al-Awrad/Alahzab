@@ -99,11 +99,16 @@
     <script>
         // Initialize Reveal.js
         Reveal.initialize({
-            plugins: [ RevealMarkdown ],
-            transition: 'slide',  // Horizontal transitions
-            slideNumber: true,    // Show slide numbers
-            center: false,        // Disable centering for better scrolling
+            plugins: [RevealMarkdown],
+            transition: 'slide',   // Enable horizontal slide transitions
+            slideNumber: true,     // Show slide numbers
+            center: false,         // Disable vertical centering for better scrolling
+            view: 'horizontal',    // Force horizontal navigation only
+            touch: true,           // Enable touch gestures for horizontal swipes
+            hideInactiveCursor: false,  // Ensure touch gestures are detected
+            autoSlideStoppable: false,  // Prevent accidental vertical slides
         });
+
 
         // Adjust the height of each section dynamically on window resize
         function adjustSectionHeight() {
