@@ -9,36 +9,48 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/night.css" />
 
     <style>
-        /* Ensure full-page height and no body overflow */
+        /* Full-page layout with hidden body overflow */
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%; /* Full height for the viewport */
-            overflow: hidden;  /* Prevent page-level scrolling */
+            height: 100%;
+            overflow: hidden;
         }
 
         .reveal {
-            height: 100vh; /* Use full viewport height for Reveal.js */
-            overflow: hidden; /* Prevent unwanted scrolling on the container */
+            height: 100vh; /* Full height for the container */
+            overflow: hidden; /* No extra scrollbars here */
         }
 
         .slides {
-            display: block; /* Use block layout to avoid layout issues */
+            display: block; /* Keep slides layout simple */
         }
 
+        /* Each slide takes full height, with vertical scrolling inside */
         section {
-            height: 100vh; /* Each slide fills the entire viewport height */
-            overflow-y: auto; /* Enable vertical scrolling for long content */
-            text-align: right; /* Right-align for Arabic text */
-            padding: 20px; /* Add padding for better readability */
+            height: 100vh; /* Ensure slides are full height */
+            overflow-y: auto; /* Allow vertical scrolling within slides */
+            text-align: right; /* Right-align Arabic text */
+            padding: 20px;
             box-sizing: border-box;
         }
 
-        /* Adjust content alignment for long text */
-        section p {
-            margin: 0 0 10px; /* Add space between paragraphs */
-            line-height: 1.8;
-            font-size: 1.2em;
+        /* Dark scrollbar styling for consistency with night theme */
+        section::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        section::-webkit-scrollbar-track {
+            background: #333; /* Dark background for scrollbar track */
+        }
+
+        section::-webkit-scrollbar-thumb {
+            background: #777; /* Gray thumb for better visibility */
+            border-radius: 5px;
+        }
+
+        section::-webkit-scrollbar-thumb:hover {
+            background: #555; /* Darker thumb on hover */
         }
     </style>
 </head>
@@ -68,10 +80,9 @@
     <script>
         Reveal.initialize({
             plugins: [ RevealMarkdown ],
-            view: 'scroll',  // Enable scroll view
-            scrollProgress: true,  // Keep progress indicator visible
-            center: false,  // Disable vertical centering
-            slideNumber: true,  // Show slide numbers for clarity
+            transition: 'slide',  // Horizontal slide transition
+            slideNumber: true,    // Show slide numbers
+            center: false,        // Disable vertical centering
         });
     </script>
 </body>
