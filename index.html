@@ -26,28 +26,30 @@
             display: block;
         }
 
-        /* Styling for each slide section */
+        /* Slide section styling with adjusted line spacing */
         section {
             height: 100vh;  /* Ensure each slide fills the screen */
             overflow-y: auto; /* Enable vertical scrolling inside slides */
             text-align: right; /* Align Arabic text to the right */
             padding: 40px; /* More padding for readability */
             box-sizing: border-box;
-            line-height: 2;  /* Increased line spacing for readability */
+            line-height: 2.2;  /* Increased line spacing */
         }
 
-        /* Title and paragraph font sizes */
+        /* Title and paragraph font sizes and spacing */
         section h2 {
             font-size: 3em; /* Larger title font size */
-            margin-bottom: 25px; /* Space below titles */
+            margin-bottom: 30px; /* Space below titles */
+            line-height: 1.5; /* Line height for multi-line titles */
         }
 
         section p {
             font-size: 1.5em; /* Increased paragraph font size */
-            margin-bottom: 20px; /* Add space between paragraphs */
+            margin-bottom: 25px; /* Add space between paragraphs */
+            line-height: 2.2;  /* More line spacing for readability */
         }
 
-        /* Styling the scrollbar to match night theme */
+        /* Styling the scrollbar to match the night theme */
         section::-webkit-scrollbar {
             width: 12px;
         }
