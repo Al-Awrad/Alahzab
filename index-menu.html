@@ -37,6 +37,7 @@
             padding: 20px;
             text-align: center;
             border-bottom: 1px solid #333;
+            position: relative;
         }
         
         header h1 {
@@ -116,6 +117,23 @@
             font-size: 0.9rem;
             color: #888;
         }
+
+        /* Mobile menu toggle button */
+        .menu-toggle {
+            display: none;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #252525;
+            border: none;
+            color: #e3e3e3;
+            font-size: 1.5rem;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            z-index: 100;
+        }
         
         /* Scrollbar styling */
         ::-webkit-scrollbar {
@@ -145,26 +163,89 @@
         @media (max-width: 768px) {
             body {
                 grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr auto;
                 grid-template-areas: 
                     "header"
                     "sidebar"
                     "main"
                     "footer";
+                overflow: auto;
             }
             
             aside {
                 border-left: none;
                 border-bottom: 1px solid #333;
+                display: block;
+                max-height: unset;
+                transition: max-height 0.3s ease;
             }
             
             main {
                 max-height: none;
+                padding: 20px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .content-section h2 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+            
+            .content-section p {
+                font-size: 1.1rem;
+                line-height: 1.8;
+            }
+            
+            .sidebar-nav li a {
+                padding: 12px 15px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Mobile phone specific */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+                padding: 0 40px; /* Space for menu toggle */
+            }
+            
+            main {
+                padding: 15px;
+            }
+            
+            .content-section h2 {
+                font-size: 1.3rem;
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+            }
+            
+            .content-section p {
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+            
+            .sidebar-nav li a {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+            
+            .menu-toggle {
+                font-size: 1.2rem;
+                padding: 4px 8px;
             }
         }
     </style>
 </head>
 <body>
     <header>
+        <button class="menu-toggle">☰</button>
         <h1>الأوراد والأحزاب</h1>
     </header>
     
@@ -228,6 +309,17 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Get all section links
             const sectionLinks = document.querySelectorAll('.section-link');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const sidebar = document.querySelector('aside');
+            
+            // Mobile menu toggle
+            menuToggle.addEventListener('click', function() {
+                if (sidebar.style.display === 'none' || sidebar.style.display === '') {
+                    sidebar.style.display = 'block';
+                } else {
+                    sidebar.style.display = 'none';
+                }
+            });
             
             // Add click event to each link
             sectionLinks.forEach(link => {
@@ -246,8 +338,29 @@
                     // Add active class to clicked link and target section
                     this.classList.add('active');
                     document.getElementById(targetId).classList.add('active');
+                    
+                    // Hide menu on mobile after selection
+                    if (window.innerWidth <= 768) {
+                        sidebar.style.display = 'none';
+                    }
+                    
+                    // Scroll to top of content on mobile
+                    window.scrollTo(0, 0);
                 });
             });
+            
+            // Initial setup for mobile devices
+            function setupForMobile() {
+                if (window.innerWidth <= 768) {
+                    sidebar.style.display = 'none';
+                } else {
+                    sidebar.style.display = 'block';
+                }
+            }
+            
+            // Run setup on load and window resize
+            setupForMobile();
+            window.addEventListener('resize', setupForMobile);
         });
     </script>
 </body>
