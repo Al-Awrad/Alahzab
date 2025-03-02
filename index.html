@@ -7,49 +7,58 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/night.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap">
 
     <style>
-        /* Full height layout without body scrolling */
+        /* Font setting for Arabic text */
+        body, .reveal, .reveal h1, .reveal h2, .reveal h3, .reveal p {
+            font-family: 'Amiri', serif;
+        }
+
+        /* Full height layout */
         html, body {
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden;
         }
 
         .reveal {
             height: 100vh;
-            overflow: hidden; /* Prevent unwanted scrollbars */
         }
 
+        /* Better slide handling for Arabic text */
         .slides {
             display: block;
         }
 
-        /* Slide section styling with adjusted line spacing */
+        /* Slide section styling with proper scrolling */
         section {
-            height: 100vh;  /* Ensure each slide fills the screen */
-            overflow-y: auto; /* Enable vertical scrolling inside slides */
-            text-align: right; /* Align Arabic text to the right */
-            padding: 40px; /* More padding for readability */
+            height: 95vh;  /* Slightly less than full to ensure content is visible */
+            overflow-y: auto !important; /* Force vertical scrolling */
+            text-align: right;
+            padding: 40px;
             box-sizing: border-box;
-            line-height: 2.5;  /* Increased line spacing */
+            line-height: 2.5;
+            max-height: 100vh; /* Ensure content can be scrolled */
         }
 
-        /* Title and paragraph font sizes and spacing */
+        /* Enhanced typography for Arabic */
         section h2 {
-            font-size: 3em; /* Larger title font size */
-            margin-bottom: 30px; /* Space below titles */
-            line-height: 1.5; /* Line height for multi-line titles */
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            font-weight: 700;
+            color: #e3e3e3;
         }
 
         section p {
-            font-size: 1.5em; /* Increased paragraph font size */
-            margin-bottom: 25px; /* Add space between paragraphs */
-            line-height: 2.5;  /* More line spacing for readability */
+            font-size: 1.6em;
+            margin-bottom: 25px;
+            line-height: 2.5;
+            letter-spacing: 0.01em; /* Slight spacing adjustment for Arabic */
         }
 
-        /* Styling the scrollbar to match the night theme */
+        /* Better scrollbar for readability */
         section::-webkit-scrollbar {
             width: 12px;
         }
@@ -66,6 +75,26 @@
         section::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
+
+        /* Navigation hints */
+        .navigation-hint {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8em;
+            z-index: 100;
+        }
+
+        /* Section indicator */
+        .section-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9em;
+            z-index: 100;
+        }
     </style>
 </head>
 <body>
@@ -77,16 +106,12 @@
 ## الاستغفار الكبير
 
 أستغفرُ اللهَ العظيمَ الّذي لا إلهَ إلّا هوَ الحيَّ القيّومَ غفّارَ الذّنوبِ ذا الجلالِ والإكرامِ وأتوبُ إليهِ، منْ جميعِ المعاصي كلّها والذّنوبِ والآثامِ، وكلِّ ذنبٍ أذنبتهُ عمداً وخطأً ظاهراً وباطناً قولاً وفعلاً، في جميعِ حركاتي وسكناتي وخطراتي وأنفاسي كلِّها دائماً أبداً سرمداً، منَ الذّنبِ الّذي أعلمُ ومنَ الذّنبِ الّذي لا أعلمُ، عددَ ما أحاطَ بهِ العلمُ وأحصاهُ الكتابُ وخطّهُ القلمُ، وعددَ ما أوجدتهُ القدرةُ وخصّصتهُ الإرادةُ ومدادَ كلماتِ اللهِ، كما ينبغي لجلالِ وجهِ ربِّنا وجمالهِ وكمالهِ، وكما يحبُّ ربُّنا ويرضى
-
-<div style="height: 500px;"></div>
                     
 ---
 
 ##  الصلاة العظيمية
 
 اللّهمّ إنّي أسألك بنور وجه الله العظيم، الّذي ملأ أركان عرش الله العظيم، وقامت به عوالم الله العظيم، أن تصلّي على مولانا محمّد ذي القدر العظيم، وعلى آل نبيّ الله العظيم، بقدر عظمة ذات الله العظيم، في كلّ لمحةٍ ونفسٍ عدد ما في علم الله العظيم، تعظيماً لحقّك يا مولانا يا محمّد يا ذا الخلق العظيم، وسلّم عليه وعلى آله مثل ذلك، واجمع بيني وبينه كما جمعت بين الرّوح والنّفس، ظاهراً وباطناً يقظةً ومناماً، واجعله يا ربّ روحاً لذاتي من جميع الوجوه في الدّنيا قبل الآخرة يا عظيم
-
-<div style="height: 500px;"></div>
                     
 ---
 
@@ -94,8 +119,6 @@
 
 اللَّهُمَّ صَلِّ عَلَى مَنْ مِنْهُ انْشَقَّتِ الأسْرَارُ، وَانْفَلَقَتِ الأنْوَارُ، وَفِيهِ ارْتَقَتِ الْحَقَائِقُ، وَتَنَزَّلَتْ عُلُومُ آدَمَ فَأعْجَزَ الْخَلاَئِق، وَلَهُ تَضَاءَلَتِ الْفُهُومُ فَلَمْ يُدْرِكْهُ مِنَّا سَابِقٌ وَلاَ لاَحِقٌ، فَرِيَاضُ الْمَلَكُوتِ بِزَهْرِ جَمَالِهِ مُونِقَةٌ، وَحِيَاضُ الْجَبَرُوتِ بِفَيْضِ أنْوَارِهِ مُتَدَفِّقَةٌ، وَلا شَيْءَ إِلا وَهُوَ بِهِ مَنُوطٌ، إِذ لَوْلاَ الْوَاسِطَةُ لَذَهَبَ -كَمَا قِيلَ- الْمَوْسُوطُ، صَلاَةً تَلِيقُ بِكَ مِنْكَ إِلَيْهِ كَمَا هُوَ أهْلُهُ.
 اللَّهُمَّ إِنَّهُ سِرُّكَ الْجَامِعُ الدَّالُ عَلَيْكَ، وَحِجَابُكَ الأعْظَمُ الْقَائِمُ لَكَ بَيْنَ يَدَيْكَ. اللَّهُمَّ ألْحِقْنِي بِنَسَبِهِ، وَحَقِّقْنِي بِحَسَبِهِ، وَعَرِّفْنِي إِيَّاهُ مَعْرِفَةً أسْلَمُ بِهَا مِنْ مَوَارِدِ الْجَهْلِ، وَأكْرَعُ بِهَا مِنْ مَوَارِدِ الْفَضْلِ، وَاحْمِلْنِي عَلَى سَبِيلِهِ إِلَى حَضْرَتِكَ حَمْلاً مَحْفُوفاً بِنُصْرَتِكَ، وَاقْذِفْ بِيَ عَلَى الْبَاطِلِ فَأدْمَغَهُ، وَزُجَّ بِي فِي بِحَارِ الأحَدِيَّةِ، وَانْشُلْنِي مِنْ أوْحَالِ التِّوْحِيدِ، وَأغْرِقْنِي فِي عَيْنِ بَحْرِ الْوَحْدَةِ حَتَّى لاَ أرَى وَلاَ أسْمَعَ وَلاَ أجِدَ وَلاَ أُحِسَّ إِلاً بِهَا، وَاجْعَلِ الْحِجَابَ الأعْظَمَ حَيَاةَ رُوحِي وَرُوحِهِ سِرَّ حَقِيقَتِي وَحَقِيقَتِهِ جَامِعَ عَوَالِمِي بِتَحْقِيقِ الْحَقِّ الأوَّلِ يَا أوَّلُ يَا آخِرُ يَا ظَاهِرُ يَا بَاطِنُ اسْمَعْ نِدَائِي بِمَا سَمِعْتَ نِدَاءَ عَبْدِكَ زَكَرِيَّا وَانْصُرْنِي بِكَ لَكَ وَأيِّدْنِي بِكَ لَكَ وَاجْمَعْ بَيْنِي وَبَيْنَكَ وَحُلْ بَيْنِي وَبَيْنَ غَيْرِكَ الله الله الله. إِنَّ الَّذِي فَرَضَ عَلَيْكَ الْقُرْآنَ لَرَادُّكَ إِلَى مَعَادِ. رَبَّنَا آتِنَا مِنْ لَدُنْكَ رَحْمَةً وهيئ لَنَا مِنْ أمْرِنَا رَشَداً (ثلاثاً)
-                    
-<div style="height: 500px;"></div>
                     
 ---
                     
@@ -111,15 +134,11 @@
 ولاَ حَوْلَ وَلاَ قُوَّةَ إلّا بِاللهِ العَلِيِّ العَظِيم (ثلاثاً).
 وَصَلَّى اللَّهُ على سَيِّدِنَا مُحَمَّدٍ وَعلى آلِهِ وَصَحْبِهِ وَسَلَّم، والحَمدُ للهِ رَبِّ العَالَمِين
 
-<div style="height: 500px;"></div>
-
 ---
                     
 ## الصلاة الذاتية لسيدي إبراهيم الدسوقي رضي الله عنه
 
 اللّهم صلّ على الذّات المحمّديّة، اللّطيفة الأحديّة، شمس سماء الأسرار، ومظهر الأنوار، ومركز مدار الجلال، وقطب فلك الجمال، اللّهم بسرّه لديك وبسيره إليك آمن خوفي، وأقل عثرتي وأذهب حزني وحرصي وكن لي وخذني إليك مِنِّي، وارزقني الفناء عَنِّي، ولا تجعلني مفتوناً بنفسي محجوباً بحسّي، واكشف لي عن كلّ سرٍّ مكتوم يا حيُّ يا قيّوم
-
-<div style="height: 500px;"></div>
 
 ---
                     
@@ -127,24 +146,54 @@
 
 اللّهمّ صلّ وسلّم وبارك على الطّلعة الذّات المطلسم، والغيث المطمطم، والكمال المكتم، لاهوت الجمال وناسوت الوصال، وطلعة الحقّ هويّة إنسان الأزل في نشر من لم يزل، من أقمت به نواسيت الفرق إلى طرق الحق، فصل اللّهمّ به منه فيه عليه، وسلّم تسليماً كثيراً، والحمد لله ربّ العالمين
 
-<div style="height: 500px;"></div>
-
                 </textarea>
             </section>
         </div>
     </div>
+    
+    <div class="section-indicator" id="section-name"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
 
     <script>
-        // Initialize Reveal.js
+        // Initialize Reveal.js with improved settings
         Reveal.initialize({
             plugins: [RevealMarkdown],
-            transition: 'slide',   // Enable horizontal slide transitions
-            slideNumber: true,     // Show slide numbers
-            center: false,         // Align content to the top, not center
-            touch: true,           // Ensure touch gestures for swiping
+            transition: 'slide',
+            slideNumber: true,
+            center: false,
+            touch: true,
+            height: '100%',
+            width: '100%',
+            margin: 0,
+            minScale: 1,
+            maxScale: 1,
+            autoSlide: 0,
+            loop: false,
+            rtl: true, // Right-to-left layout for Arabic
+            controlsTutorial: true,
+            keyboard: true
+        });
+
+        // Update section indicator
+        Reveal.addEventListener('slidechanged', function(event) {
+            const currentSlide = event.currentSlide;
+            const heading = currentSlide.querySelector('h2');
+            if (heading) {
+                document.getElementById('section-name').textContent = heading.textContent;
+            }
+        });
+
+        // Initial setup
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                const currentSlide = Reveal.getCurrentSlide();
+                const heading = currentSlide.querySelector('h2');
+                if (heading) {
+                    document.getElementById('section-name').textContent = heading.textContent;
+                }
+            }, 500);
         });
     </script>
 </body>
