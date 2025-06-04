@@ -4,10 +4,14 @@
     padding: 0;
 }
 
+:root {
+    --font-size-multiplier: 1;
+}
+
 body {
     font-family: 'Amiri', serif;
-    background-color: #121212;
-    color: #e3e3e3;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     line-height: 1.6;
     height: 100vh;
     display: grid;
@@ -18,29 +22,183 @@ body {
         "sidebar main"
         "footer footer";
     overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Theme Variables */
+body[data-theme="dark"] {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --bg-tertiary: #1a1a1a;
+    --bg-accent: #252525;
+    --text-primary: #e3e3e3;
+    --text-secondary: #888;
+    --border-color: #333;
+    --scrollbar-track: #1a1a1a;
+    --scrollbar-thumb: #444;
+    --scrollbar-thumb-hover: #555;
+}
+
+body[data-theme="bright"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #e9ecef;
+    --bg-accent: #dee2e6;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --border-color: #ced4da;
+    --scrollbar-track: #f1f3f4;
+    --scrollbar-thumb: #c1c1c1;
+    --scrollbar-thumb-hover: #a8a8a8;
+}
+
+body[data-theme="cream"] {
+    --bg-primary: #f7f3e9;
+    --bg-secondary: #e8dcc0;
+    --bg-tertiary: #d4c5a0;
+    --bg-accent: #c7b299;
+    --text-primary: #3c2e26;
+    --text-secondary: #8b7355;
+    --border-color: #c7b299;
+    --scrollbar-track: #e8dcc0;
+    --scrollbar-thumb: #c7b299;
+    --scrollbar-thumb-hover: #b5a085;
+}
+
+body[data-theme="warm"] {
+    --bg-primary: #2c2416;
+    --bg-secondary: #3d3424;
+    --bg-tertiary: #4a3f2a;
+    --bg-accent: #5c4f35;
+    --text-primary: #e8dcc0;
+    --text-secondary: #b5a085;
+    --border-color: #5c4f35;
+    --scrollbar-track: #3d3424;
+    --scrollbar-thumb: #5c4f35;
+    --scrollbar-thumb-hover: #6b5940;
+}
+
+body[data-theme="matrix"] {
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-tertiary: #21262d;
+    --bg-accent: #30363d;
+    --text-primary: #00ff41;
+    --text-secondary: #39ff14;
+    --border-color: #00b33c;
+    --scrollbar-track: #161b22;
+    --scrollbar-thumb: #00b33c;
+    --scrollbar-thumb-hover: #00ff41;
 }
 
 header {
     grid-area: header;
-    background-color: #1e1e1e;
+    background-color: var(--bg-secondary);
     padding: 20px;
     text-align: center;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--border-color);
     position: relative;
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: calc(2.5rem * var(--font-size-multiplier));
     margin: 0;
-    color: #e3e3e3;
+    color: var(--text-primary);
 }
 
 aside {
     grid-area: sidebar;
-    background-color: #1a1a1a;
+    background-color: var(--bg-tertiary);
     padding: 20px 0;
-    border-left: 1px solid #333;
+    border-left: 1px solid var(--border-color);
     overflow-y: auto;
+}
+
+.sidebar-controls {
+    padding: 15px 20px;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 10px;
+}
+
+.font-controls, .theme-controls {
+    margin-bottom: 15px;
+}
+
+.font-controls:last-child, .theme-controls:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar-controls label {
+    display: block;
+    font-size: calc(0.9rem * var(--font-size-multiplier));
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.font-controls button {
+    background-color: var(--bg-accent);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    width: 35px;
+    height: 35px;
+    margin: 0 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: calc(1.2rem * var(--font-size-multiplier));
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.font-controls button:hover {
+    background-color: var(--bg-secondary);
+    transform: scale(1.1);
+}
+
+.theme-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.theme-btn {
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+    border-width: 3px;
+}
+
+.theme-btn.active {
+    border-width: 3px;
+    box-shadow: 0 0 0 2px var(--text-primary);
+}
+
+.theme-btn[data-theme="dark"] {
+    background: linear-gradient(45deg, #121212, #1e1e1e);
+}
+
+.theme-btn[data-theme="bright"] {
+    background: linear-gradient(45deg, #ffffff, #f8f9fa);
+}
+
+.theme-btn[data-theme="cream"] {
+    background: linear-gradient(45deg, #f7f3e9, #e8dcc0);
+}
+
+.theme-btn[data-theme="warm"] {
+    background: linear-gradient(45deg, #2c2416, #3d3424);
+}
+
+.theme-btn[data-theme="matrix"] {
+    background: linear-gradient(45deg, #0d1117, #161b22);
+    border-color: #00b33c;
 }
 
 .sidebar-nav {
@@ -48,28 +206,28 @@ aside {
 }
 
 .sidebar-nav li {
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .sidebar-nav li a {
     display: block;
     padding: 15px 20px;
-    color: #e3e3e3;
+    color: var(--text-primary);
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: calc(1.2rem * var(--font-size-multiplier));
     transition: background-color 0.3s;
 }
 
 .sidebar-nav li a:hover, .sidebar-nav li a.active {
-    background-color: #252525;
-    color: #fff;
+    background-color: var(--bg-accent);
+    color: var(--text-primary);
 }
 
 main {
     grid-area: main;
     padding: 30px;
     overflow-y: auto;
-    max-height: calc(100vh - 80px - 40px); /* Viewport height minus header and footer */
+    max-height: calc(100vh - 80px - 40px);
 }
 
 .content-section {
@@ -82,29 +240,29 @@ main {
 }
 
 .content-section h2 {
-    font-size: 2rem;
+    font-size: calc(2rem * var(--font-size-multiplier));
     margin-bottom: 20px;
     padding-bottom: 15px;
-    border-bottom: 1px solid #333;
-    color: #e3e3e3;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
 }
 
 .content-section p {
-    font-size: 2rem;
-    line-height: 2.5;
+    font-size: calc(1.4rem * var(--font-size-multiplier));
+    line-height: 2.2;
     margin-bottom: 20px;
-    text-align: justify;
+    text-align: center;
     letter-spacing: 0.01em;
 }
 
 footer {
     grid-area: footer;
-    background-color: #1e1e1e;
+    background-color: var(--bg-secondary);
     padding: 10px 20px;
     text-align: center;
-    border-top: 1px solid #333;
-    font-size: 0.9rem;
-    color: #888;
+    border-top: 1px solid var(--border-color);
+    font-size: calc(0.9rem * var(--font-size-multiplier));
+    color: var(--text-secondary);
 }
 
 /* Mobile menu toggle button */
@@ -114,10 +272,10 @@ footer {
     left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    background: #252525;
+    background: var(--bg-accent);
     border: none;
-    color: #e3e3e3;
-    font-size: 1.5rem;
+    color: var(--text-primary);
+    font-size: calc(1.5rem * var(--font-size-multiplier));
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 4px;
@@ -130,16 +288,16 @@ footer {
 }
 
 ::-webkit-scrollbar-track {
-    background: #1a1a1a;
+    background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #444;
+    background: var(--scrollbar-thumb);
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: var(--scrollbar-thumb-hover);
 }
 
 /* Animations */
@@ -179,30 +337,30 @@ footer {
     }
     
     header h1 {
-        font-size: 1.8rem;
+        font-size: calc(1.8rem * var(--font-size-multiplier));
     }
     
     .content-section h2 {
-        font-size: 1.5rem;
+        font-size: calc(1.5rem * var(--font-size-multiplier));
         margin-bottom: 15px;
     }
     
     .content-section p {
-        font-size: 1.1rem;
+        font-size: calc(1.1rem * var(--font-size-multiplier));
         line-height: 1.8;
     }
     
     .sidebar-nav li a {
         padding: 12px 15px;
-        font-size: 1.5rem;
+        font-size: calc(1rem * var(--font-size-multiplier));
     }
 }
 
 /* Mobile phone specific */
 @media (max-width: 480px) {
     header h1 {
-        font-size: 1.5rem;
-        padding: 0 40px; /* Space for menu toggle */
+        font-size: calc(1.5rem * var(--font-size-multiplier));
+        padding: 0 40px;
     }
     
     main {
@@ -210,23 +368,23 @@ footer {
     }
     
     .content-section h2 {
-        font-size: 1.3rem;
+        font-size: calc(1.3rem * var(--font-size-multiplier));
         padding-bottom: 10px;
         margin-bottom: 10px;
     }
     
     .content-section p {
-        font-size: 1.5rem;
-        line-height: 2;
+        font-size: calc(0.95rem * var(--font-size-multiplier));
+        line-height: 1.7;
     }
     
     .sidebar-nav li a {
         padding: 10px;
-        font-size: 1rem;
+        font-size: calc(0.9rem * var(--font-size-multiplier));
     }
     
     .menu-toggle {
-        font-size: 1.2rem;
+        font-size: calc(1.2rem * var(--font-size-multiplier));
         padding: 4px 8px;
     }
 }
