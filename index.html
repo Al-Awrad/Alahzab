@@ -7,13 +7,30 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-theme="dark">
     <header>
         <button class="menu-toggle">☰</button>
         <h1>الأوراد والأحزاب</h1>
     </header>
     
     <aside>
+        <div class="sidebar-controls">
+            <div class="font-controls">
+                <label>حجم الخط:</label>
+                <button id="font-decrease">-</button>
+                <button id="font-increase">+</button>
+            </div>
+            <div class="theme-controls">
+                <label>المظهر:</label>
+                <div class="theme-buttons">
+                    <button class="theme-btn active" data-theme="dark" title="داكن"></button>
+                    <button class="theme-btn" data-theme="bright" title="مضيء"></button>
+                    <button class="theme-btn" data-theme="cream" title="كريمي"></button>
+                    <button class="theme-btn" data-theme="warm" title="دافئ"></button>
+                    <button class="theme-btn" data-theme="matrix" title="ماتريكس"></button>
+                </div>
+            </div>
+        </div>
         <ul class="sidebar-nav">
             <li><a href="#mashishiyah" class="section-link active">الصلاة المشيشية</a></li>
             <li><a href="#hizbulbahr" class="section-link">حزب البحر</a></li>
