@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateFontSize() {
-        document.documentElement.style.setProperty('--font-size-multiplier', currentFontSize);
+        document.documentElement.style.setProperty('--paragraph-font-size-multiplier', currentFontSize);
         localStorage.setItem('fontSizeMultiplier', currentFontSize.toString());
     }
     
