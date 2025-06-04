@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Font size and theme controls
     let currentFontSize = 1;
     const minFontSize = 1;
-    const maxFontSize = 2;
-    const fontStep = 0.2;
+    const maxFontSize = 2.5;
+    const fontStep = 0.5;
     
     // Mobile menu toggle
     menuToggle.addEventListener('click', function() {
